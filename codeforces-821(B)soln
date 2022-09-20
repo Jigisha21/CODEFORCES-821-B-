@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std ;
+
+void printPattern(int temp , int x)      // CONSTRUCTIVE ALGORITHM IS USED HERE 
+{
+    int count = 1 ;
+    while(temp--)
+    {
+        for(int i = 1 ; i<=x ;i++)
+        {
+            cout<<count<<" ";
+        }
+        if(count == 1)
+        {
+            count++ ;
+        }
+        count+=x ;
+    }
+}
+int main()
+{
+    int t ;
+    cin>>t ;
+    while(t--)
+    {
+        int n , x , y ;
+        cin>>n>>x >>y ;
+        int l = max(x,y) ;
+
+        if((x>0&&y>0) || (x<=0 &&y<=0))
+        {
+            cout<<-1 <<endl;
+            continue ;
+        }
+        else if((n-1)%l == 0){
+
+            int temp = (n-1)/l ;
+            printPattern( temp ,  l) ;
+        }
+        else{
+            cout<<-1<<endl ;
+        }
+    }
+}
